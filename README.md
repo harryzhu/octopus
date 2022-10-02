@@ -1,0 +1,2 @@
+# confctl
+sqlconf editor
