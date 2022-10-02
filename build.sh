@@ -1,2 +1,2 @@
 #! /bin/bash
-go build -o confctl main.go
+go build -ldflags "-w" -o confctl main.go
