@@ -44,7 +44,8 @@ var rootCmd = &cobra.Command{
 		Name = strings.ToLower(Name)
 		Name = strings.Trim(Name, " ")
 
-		if len(regexp.MustCompile(`\W`).FindAllString(Name, -1)) > 0 {
+		nonword := regexp.MustCompile(`\W`)
+		if len(nonword.FindAllString(Name, -1)) > 0 {
 			log.Fatal("--name= can only use: a-zA-Z0-9_")
 		}
 
