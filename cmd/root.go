@@ -8,9 +8,10 @@ import (
 	//"fmt"
 	"log"
 	"os"
+	"regexp"
 	"sqlconf"
-
 	"strconv"
+	"strings"
 	"time"
 
 	"github.com/spf13/cobra"
@@ -40,17 +41,27 @@ var rootCmd = &cobra.Command{
 		}
 		log.Println("File:", File)
 
+		Name = strings.ToLower(Name)
+		Name = strings.Trim(Name, " ")
+
+		if len(regexp.MustCompile(`\W`).FindAllString(Name, -1)) > 0 {
+			log.Fatal("--name= can only use: a-zA-Z0-9_")
+		}
+
 		firstRun = false
 		_, err := os.Stat(File)
 		if err != nil {
 			firstRun = true
 		}
+
 		config.Open(File).Refresh()
 
 		if firstRun == true {
 			config.Set("app_first_run", strconv.FormatInt(ts_now, 10))
 			config.Set("app_conf_update", strconv.FormatInt(ts_now, 10))
 			config.Set("app_name", "confctl")
+			config.Set("app_author", "harryzhu")
+			config.Set("app_license", "MIT")
 			config.Set("app_version", "1.0.0")
 			config.Set("app_data_dir", "./data")
 			config.Set("app_logs_dir", "./logs")

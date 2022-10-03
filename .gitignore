@@ -1,3 +1,4 @@
 *.db
 *.log
 .DS_Store
+confctl
