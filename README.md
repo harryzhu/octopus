@@ -4,6 +4,7 @@ sqlconf editor
 ## Usage
 <code>
 git clone https://github.com/harryzhu/confctl
+
 cd confctl
 
 ./build.sh
