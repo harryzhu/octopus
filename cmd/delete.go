@@ -2,6 +2,7 @@ package cmd
 
 import (
 	"log"
+	"strconv"
 
 	"github.com/spf13/cobra"
 )
@@ -21,6 +22,7 @@ var deleteCmd = &cobra.Command{
 		log.Println("delete ...")
 		config.Delete(Name)
 
+		config.Set("app_conf_update", strconv.FormatInt(ts_now, 10))
 	},
 }
 

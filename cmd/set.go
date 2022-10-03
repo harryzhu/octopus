@@ -2,6 +2,7 @@ package cmd
 
 import (
 	"log"
+	"strconv"
 	"strings"
 
 	"github.com/spf13/cobra"
@@ -17,11 +18,13 @@ var setCmd = &cobra.Command{
 			log.Fatal("--name cannot be empty")
 		}
 		Name = strings.ToLower(Name)
+		Name = strings.Trim(Name, " ")
 	},
 	Run: func(cmd *cobra.Command, args []string) {
 		log.Println("set ...")
 		config.Set(Name, Val)
 
+		config.Set("app_conf_update", strconv.FormatInt(ts_now, 10))
 	},
 }
 
