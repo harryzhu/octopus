@@ -4,7 +4,7 @@ Copyright © 2022 NAME HERE <EMAIL ADDRESS>
 */
 package main
 
-import "confctl/cmd"
+import "sqlconfctl/cmd"
 
 func main() {
 	cmd.Execute()
