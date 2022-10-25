@@ -20,4 +20,7 @@ cd sqlconfctl
 ./sqlconfctl delete --file="./conf.db" --name=appname
 </code>
 
---file="./conf.db" can be skipped and "./conf.db" is the default file
+## Params
+* --file="./conf.db" can be skipped and "./conf.db" is the default file
+* --name="app_name" the key of your settings
+* --val="sqlconfctl" the value of the key
