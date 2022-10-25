@@ -1,21 +1,23 @@
-# confctl
+# sqlconfctl
 sqlconf editor
 
 ## Usage
 ```
-git clone https://github.com/harryzhu/confctl
+git clone https://github.com/harryzhu/sqlconfctl
 
-cd confctl
+cd sqlconfctl
 
 ./build.sh
 ```
 
 ### set KEY=VAL into conf database
 <code>
-./confctl set --file="./conf.db" --name=appname --val=s3uploader
+./sqlconfctl set --file="./conf.db" --name=appname --val=s3uploader
 </code>
 
 ### delete KEY from conf database
 <code>
-./confctl delete --file="./conf.db" --name=appname
+./sqlconfctl delete --file="./conf.db" --name=appname
 </code>
+
+--file="./conf.db" can be skipped and "./conf.db" is the default file
