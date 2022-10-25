@@ -1,4 +1,6 @@
 *.db
 *.log
+logs
 .DS_Store
 sqlconfctl
+sqlconfctl.exe
