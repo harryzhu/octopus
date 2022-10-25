@@ -7,7 +7,11 @@ git clone https://github.com/harryzhu/sqlconfctl
 
 cd sqlconfctl
 
-./build.sh
+# windows
+build-windows.bat
+
+# non-windows
+./build.sh 
 ```
 
 ### set KEY=VAL into conf database
