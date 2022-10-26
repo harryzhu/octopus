@@ -39,6 +39,7 @@ var rootCmd = &cobra.Command{
 		if File == "" {
 			log.Fatal("--file cannot be empty")
 		}
+
 		log.Println("File:", File)
 
 		Name = strings.ToLower(Name)
@@ -88,5 +89,10 @@ func Execute() {
 }
 
 func init() {
-	rootCmd.PersistentFlags().StringVar(&File, "file", "./conf.db", "config file name of conf-database")
+	cFile := "./conf.db"
+	sqlconfenv := strings.ToLower(sqlconf.GetEnv("SQLCONFENV", ""))
+	if sqlconfenv != "" {
+		cFile = strings.Join([]string{"./conf", sqlconfenv, "db"}, ".")
+	}
+	rootCmd.PersistentFlags().StringVar(&File, "file", cFile, "config file name of conf-database")
 }
