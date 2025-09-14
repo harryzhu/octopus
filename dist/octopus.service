@@ -1,0 +1,16 @@
+[Unit]
+Description="Octopus"
+After= network.target
+
+[Service]
+Type=simple
+#User=root
+WorkingDirectory=/home/tmp
+ExecStart=/usr/local/bin/start_octopus.sh start
+ExecStop=/usr/local/bin/start_octopus.sh stop
+ExecReload=/usr/local/bin/start_octopus.sh restart
+#Restart=on-failure
+#RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target
