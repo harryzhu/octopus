@@ -83,7 +83,6 @@ func bcacheDelete(k string) error {
 		if err == bigcache.ErrEntryNotFound {
 			return nil
 		}
-	} else {
 		return err
 	}
 

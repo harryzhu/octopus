@@ -90,7 +90,7 @@ func memcacheListQuick(ctx iris.Context) {
 		}
 	</style>
 	`
-	s := strings.Join([]string{"<h2>", prefix, "</h2><table>"}, "")
+	s := strings.Join([]string{"<h2>", prefix, " [max: 1000]</h2><table>"}, "")
 	for k, v := range kvs {
 		if k != "" {
 			s = strings.Join([]string{s, "<tr><td>", k, "</td><td>", v, "</tr>"}, "")

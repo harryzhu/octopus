@@ -345,7 +345,7 @@ func actionMongo(ctx iris.Context) {
 				if ok {
 					mgfilter = mgoParseGetFilter(vf)
 				} else {
-					fmt.Printf("item.Data.filter Type--- %T : %v \n", v, v)
+					//fmt.Printf("item.Data.filter Type--- %T : %v \n", v, v)
 					DebugWarn("actionMongo: GET", "filter is invalid")
 				}
 
@@ -356,7 +356,7 @@ func actionMongo(ctx iris.Context) {
 				if ok {
 					mgoption = mgoParseGetOption(vo)
 				} else {
-					fmt.Printf("---option Type--- %T \n", v)
+					//fmt.Printf("---option Type--- %T \n", v)
 					DebugWarn("actionMongo: GET", "option is invalid")
 				}
 
@@ -364,8 +364,8 @@ func actionMongo(ctx iris.Context) {
 
 		}
 
-		fmt.Printf("---FINAL: filter--- %+v \n", mgfilter)
-		fmt.Printf("---FINAL: option--- %+v \n", mgoption)
+		//fmt.Printf("---FINAL: filter--- %+v \n", mgfilter)
+		//fmt.Printf("---FINAL: option--- %+v \n", mgoption)
 
 		rows, err := mgoGet(item.Bucket, mgfilter, mgoption)
 		if err != nil {

@@ -32,7 +32,7 @@ func ParseItemData(itemData map[string]any) map[string]string {
 	r2MIME := ""
 	mcValue := ""
 	for k, v := range itemData {
-		fmt.Printf("==== v's type ==== %T\n", v)
+		//fmt.Printf("==== v's type ==== %T\n", v)
 		if k == "_id" {
 			vs, ok := v.(string)
 			if !ok {
